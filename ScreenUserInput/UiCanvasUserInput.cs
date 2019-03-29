@@ -16,7 +16,17 @@ public class UiCanvasUserInput : MonoBehaviour, IUserInput, IPointerDownHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-        InputMoveReceived?.Invoke(eventData.delta);
+        print(eventData.pointerId + " "+eventData.button);
+
+        switch (eventData.button)
+        {
+            case PointerEventData.InputButton.Middle:
+                InputMoveReceived?.Invoke(eventData.delta);
+                break;
+            case PointerEventData.InputButton.Right:
+                InputRotateReceived?.Invoke(Vector2.Dot(eventData.delta, Vector2.right), Vector2.Dot(eventData.delta, Vector2.up));
+                break;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -33,4 +43,5 @@ public class UiCanvasUserInput : MonoBehaviour, IUserInput, IPointerDownHandler,
     public event Action<Vector2> PointerUpInputReceived;
     public event Action<Vector2> InputMoveReceived;
     public event Action<float> InputScaleReceived;
+    public event Action<float, float> InputRotateReceived;
 }

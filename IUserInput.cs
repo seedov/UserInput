@@ -8,5 +8,6 @@ public interface IUserInput
     event Action<Vector2> PointerUpInputReceived;
     event Action<Vector2> InputMoveReceived;
     event Action<float> InputScaleReceived;
+    event Action<float, float> InputRotateReceived;
 
 }
