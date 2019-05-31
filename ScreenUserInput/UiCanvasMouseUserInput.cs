@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine.EventSystems;
 
-public class UiCanvasMouseUserInput : UiCanvasUserInput, IScrollHandler, IDragHandler
+public class UiCanvasMouseUserInput : UiCanvasUserInput, IScrollHandler, IDragHandler, IPointerDownHandler
 {
 
 
@@ -27,4 +27,8 @@ public class UiCanvasMouseUserInput : UiCanvasUserInput, IScrollHandler, IDragHa
     }
 
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        InvokePointerDownEvent(eventData.position);
+    }
 }

@@ -32,4 +32,10 @@ public abstract class UiCanvasUserInput : MonoBehaviour, IUserInput
     {
         InputRotateReceived?.Invoke(Vector2.Dot(delta, Vector2.right), Vector2.Dot(delta, Vector2.up));
     }
+
+    protected void InvokePointerDownEvent(Vector2 position)
+    {
+        PointerDownInputReceived?.Invoke(position);
+    }
+    
 }
