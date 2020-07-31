@@ -11,7 +11,7 @@ public class UiCanvasMouseUserInput : UiCanvasUserInput, IScrollHandler, IDragHa
 
         switch (eventData.button)
         {
-            case PointerEventData.InputButton.Middle:
+            case PointerEventData.InputButton.Left:
                 InvokeMoveEvent(eventData.delta);
                 break;
             case PointerEventData.InputButton.Right:
