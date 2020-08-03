@@ -7,8 +7,6 @@ public class UiCanvasMouseUserInput : UiCanvasUserInput, IScrollHandler, IDragHa
 
     public void OnDrag(PointerEventData eventData)
     {
-        print(eventData.pointerId + " "+eventData.button);
-
         switch (eventData.button)
         {
             case PointerEventData.InputButton.Left:
